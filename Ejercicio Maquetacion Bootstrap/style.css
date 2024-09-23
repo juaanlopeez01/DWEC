@@ -4,3 +4,6 @@
 .margen{
     margin: 20px;
 }
+.flex-container{
+    display: flex;
+}
