@@ -1,9 +1,38 @@
-.textorojo{
-    color: red;
+body {
+    font-family: 'Arial', sans-serif;
 }
-.margen{
-    margin: 20px;
+
+header h1 {
+    font-weight: bold;
 }
-.flex-container{
-    display: flex;
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+footer {
+    background-color: #f8f9fa;
+}
+
+.card {
+    position: relative;
+}
+
+.card .bg-danger, .card .bg-primary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.table, th, td {
+    border: 1px solid black;
 }
