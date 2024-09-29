@@ -18,21 +18,53 @@ footer {
     background-color: #f8f9fa;
 }
 
+.storage-option{
+    background-color: lightgreen;
+    width: 20%;
+}
+
+.otros-accesorios{
+    display: flex;
+}
+
+.oferta{
+    background-color: red;
+    padding: 5px;
+}
+
+.nuevo{
+    background-color: blue;
+    padding: 5px;
+}
+
 .card {
     position: relative;
 }
 
-.card .bg-danger, .card .bg-primary {
+.card .bg-primary {
     position: absolute;
     top: 0;
     right: 0;
     padding: 0.5rem 1rem;
 }
 
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+}
+
 form {
     max-width: 500px;
     margin: 0 auto;
 }
-.table, th, td {
-    border: 1px solid black;
+
+.sorteo-section {
+    background-color: #e9f3ff;
+    padding: 2rem;
+    border-radius: 8px;
 }
+.form-control {
+    max-width: 300px;
+}
+
+

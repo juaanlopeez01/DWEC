@@ -5,27 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>agoodshop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="p-3 bg-light">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h3">agoodshop</h1>
-            <nav>
-                <a href="#" class="me-3">Tienda</a>
-                <a href="#" class="me-3">Accesorios</a>
-                <a href="#" class="me-3">Soporte</a>
-                <button class="btn btn-outline-primary">Contactar</button>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">agoodshop</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Tienda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Accesorios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Soporte</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <button class="btn btn-outline-success" type="submit">Contactar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
     </header>
 
     <section class="container mt-5">
         <div class="row">
             <div class="col-md-6">
                 <div class="bg-light p-4 text-center">
-                    <div class="bg-secondary text-white py-2 px-3 rounded mb-3">128gb</div>
-                    <img src="https://cdn.alloallo.media/catalog/product/apple/iphone/iphone-13-mini/iphone-13-mini-blue.jpg" class="img-fluid" alt="iPhone 13 Pro">
+                    <div class="text-white storage-option py-2 px-3 rounded mb-3">128gb</div>
+                    <img src="img/iPhone_13_Rosa.webp" class="img-fluid" alt="iPhone 13 Pro">
                 </div>
             </div>
             <div class="col-md-6">
@@ -38,15 +53,15 @@
                     <button class="btn btn-primary btn-lg w-100 mb-3">Comprar</button>
                     <div class="d-flex justify-content-between">
                         <div class="text-center">
-                            <i class="bi bi-truck"></i>
+                            <i class="bi bi-truck"><img src="img/store_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"></i>
                             <p>Envío rápido, gratuito y sin contacto</p>
                         </div>
                         <div class="text-center">
-                            <i class="bi bi-arrow-return-left"></i>
+                            <i class="bi bi-arrow-return-left"><img src="img/refresh_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"></i>
                             <p>Devoluciones fáciles y gratuitas</p>
                         </div>
                         <div class="text-center">
-                            <i class="bi bi-credit-card"></i>
+                            <i class="bi bi-credit-card"><img src="img/attach_money_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"></i>
                             <p>Posibilidad de pago a plazos</p>
                         </div>
                     </div>
@@ -57,7 +72,7 @@
     <section class="container mt-5">
         <h3>Accesorios recomendados</h3>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 otros-accesorios">
                 <div class="card">
                     <img src="https://media2.gsm55.com/media/catalog/product/s/e/sec-apl-20w-2.jpg" class="card-img-top" alt="Cargador">
                     <div class="card-body">
@@ -66,31 +81,32 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 otros-accesorios">
                 <div class="card">
-                    <div class="bg-danger text-white py-1 px-2 position-absolute top-0 end-0">Oferta</div>
+                    
                     <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/HPU72?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1636763768000" class="card-img-top" alt="Base de carga inalámbrica">
                     <div class="card-body">
                         <h5 class="card-title">Base de carga inalámbrica</h5>
+                        <div class="text-white"><span class="oferta">Oferta</span></div>
                         <p class="card-text">Sistema de soporte para que sigas usando tu smartphone cómodamente mientras lo cargas. Compatible con carga rápida de 20W.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 otros-accesorios">
                 <div class="card">
-                    <img src="https://www.pielframa.com/22484-thickbox_default/funda-framagrip-iPhone-13-mini.jpg" class="card-img-top" alt="Funda piel">
+                    <img src="img/funda piel.jpeg" class="card-img-top" alt="Funda piel">
                     <div class="card-body">
                         <h5 class="card-title">Funda piel</h5>
                         <p class="card-text">Fabricadas en piel europea curtida y teñida con u nproceso especial, son suaves al tacto y adquieren un tono natural con el tiempo. Los botones de aluminio combinan a la perfeccion con el acabado de la piel.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 otros-accesorios">
                 <div class="card">
-                    <div class="bg-primary text-white py-1 px-2 position-absolute top-0 end-0">Nuevo</div>
                     <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airtag-double-select-202104_FMT_WHH?wid=2000&hei=2000&fmt=jpeg&qlt=90&.v=1617761672000" class="card-img-top" alt="Cargador">
                     <div class="card-body">
                         <h5 class="card-title">Airtag</h5>
+                        <div class="text-white"><span class="nuevo">Nuevo</span></div>
                         <p class="card-text">Con el AirTag puedes saber fácilmente dónde están tus cosas. Pon uno en las llaves y otro en la mochila y las tendrás localizadas en la app Buscar, la misma que usas para encontrar a tus amigos y tus dispositivos Apple. Es un hallazgo, no te lo pierdas.</p>
                     </div>
                 </div>
@@ -99,27 +115,26 @@
     </section>
 
     <section class="container mt-5">
-        <table>
-            <tr>
-                <th>
-                    <h3>Participa en el sorteo de un iPhone 13</h3>
-                    <p>Este verano, ¡venimos cargados de premios! Así que antes de irte de vacaciones, ¡participa en nuestro sorteo y podrás llevarte un regalo increíble como un nuevo iPhone 13!</p>
-                </th>
-                <th>
-                    <form class="bg-light p-4 rounded">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" placeholder="Juan Lopez">
-                        </div>
+        <div class="row align-items-center sorteo-section">
+            <div class="col-md-6">
+                <h3>Participa en el sorteo de un iPhone 13</h3>
+                <p>Este verano, ¡venimos cargados de premios! Así que antes de irte de vacaciones, ¡participa en nuestro sorteo y podrás llevarte un regalo increíble como un nuevo iPhone 13!</p>
+                <p>Rellena este formulario para ser uno de los afortunados.</p>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" placeholder="Juan López">
+                    </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="jlopezt06@educantabria.es">
                     </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </th>
-            </tr>
-        </table>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer class="bg-light text-center py-3 mt-5">
