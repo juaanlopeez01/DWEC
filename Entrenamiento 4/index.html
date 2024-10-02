@@ -7,19 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="register-form">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Juan Lopez">
-        <label for="age">Edad</label>
-        <input type="number" id="age" name="age" placeholder="Edad">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="jlopezt06@educantabria.es">
-        <label for="phone">Teléfono</label>
-        <input type="tel" id="phone" name="phone" placeholder="999 99 99 99">
-        <input type="checkbox" id="terms" name="terms">
-        <label for="terms">Acepto los términos y condiciones</label>
-        <input type="submit" value="Enviar">
-    </form>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Ingrese su nombre">
+      
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Ingrese su apellido">
+      
+        <label for="tipo-via">Tipo de vía:</label>
+        <select id="tipo-via" required>
+          <option value="">Seleccione una opción</option>
+          <option value="option1">Calle</option>
+          <option value="option2">Avenida</option>
+          <option value="option3">Plaza</option>
+        </select>
+      
+        <label for="direccion">Dirección completa:</label>
+        <input type="text" id="direccion" placeholder="Ingrese su dirección completa">
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Ingrese su email">
+      
+        <label for="tlfn">Teléfono:</label>
+        <input type="tel" id="tlfn" placeholder="Ingrese su teléfono">
+      
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" placeholder="Ingrese su edad">
+      
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" placeholder="Ingrese su DNI">
+      
+        <button type="submit">Enviar</button>
+      </form>
 
     <script src="script.js"></script>
 </body>
