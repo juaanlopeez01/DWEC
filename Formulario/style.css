@@ -39,3 +39,11 @@ input, select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+#nombre, #apellido, #direccion{
+    text-transform: uppercase; /* Poner todo en mayusculas */ 
+} 
+
+#texto{
+    text-transform: capitalize; /* Poner la primera letra en mayúscula */
+}  
