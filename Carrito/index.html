@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="carrito">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>iPhone 13 Pro <br> Ref: 0K3QOSOV4V</td>
+                    <td>
+                        <button class="btn-decrease" data-producto="iphone">-</button>
+                        <span id="cantidad-iphone">0</span>
+                        <button class="btn-increase" data-producto="iphone">+</button>
+                    </td>
+                    <td>938,99€</td>
+                    <td><span id="total-iphone">0€</span></td>
+                </tr>
+                <tr>
+                    <td>Cargador <br> Ref: TGD5X0RY1L</td>
+                    <td>
+                        <button class="btn-decrease" data-producto="cargador">-</button>
+                        <span id="cantidad-cargador">0</span>
+                        <button class="btn-increase" data-producto="cargador">+</button>
+                    </td>
+                    <td>49,99€</td>
+                    <td><span id="total-cargador">0€</span></td>
+                </tr>
+                <tr>
+                    <td>Funda de piel <br> Ref: I0KW9BQ9F3</td>
+                    <td>
+                        <button class="btn-decrease" data-producto="funda">-</button>
+                        <span id="cantidad-funda">0</span>
+                        <button class="btn-increase" data-producto="funda">+</button>
+                    </td>
+                    <td>79,99€</td>
+                    <td><span id="total-funda">0€</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total-container">
+            <h3>Total</h3>
+            <p id="total-general">0€</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
