@@ -1,61 +1,42 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <meta name="viewport" content="width=ha, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="carrito">
-        <table>
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Unidad</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>iPhone 13 Pro <br> Ref: 0K3QOSOV4V</td>
-                    <td>
-                        <button class="btn-decrease" data-producto="iphone">-</button>
-                        <span id="cantidad-iphone">0</span>
-                        <button class="btn-increase" data-producto="iphone">+</button>
-                    </td>
-                    <td>938,99€</td>
-                    <td><span id="total-iphone">0€</span></td>
-                </tr>
-                <tr>
-                    <td>Cargador <br> Ref: TGD5X0RY1L</td>
-                    <td>
-                        <button class="btn-decrease" data-producto="cargador">-</button>
-                        <span id="cantidad-cargador">0</span>
-                        <button class="btn-increase" data-producto="cargador">+</button>
-                    </td>
-                    <td>49,99€</td>
-                    <td><span id="total-cargador">0€</span></td>
-                </tr>
-                <tr>
-                    <td>Funda de piel <br> Ref: I0KW9BQ9F3</td>
-                    <td>
-                        <button class="btn-decrease" data-producto="funda">-</button>
-                        <span id="cantidad-funda">0</span>
-                        <button class="btn-increase" data-producto="funda">+</button>
-                    </td>
-                    <td>79,99€</td>
-                    <td><span id="total-funda">0€</span></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="total-container">
-            <h3>Total</h3>
-            <p id="total-general">0€</p>
-        </div>
+    <div class="title">
+        <h1>AGOODSHOP</h1>
     </div>
+    <hr>
+    <div class="container">
+        <div class="t1">
+            <table class="tablaProductos">
+                <thead>
+                    <tr class="craneo">
+                        <th class="producto">Producto</th>
+                        <th class="cantidad">Cantidad</th>
+                        <th class="unidad">Unidad</th>
+                        <th class="total">Total</th>
+                    </tr>
+                </thead>    
+            </table>
+ 
+        </div>
+     
+        <div class="t2">
+           
+            <div class="g1">
+                <h2>TOTAL</h2>
+            </div>
+            <div class="g2">
+                <p>Total: </p>
+            </div>
+        </div>
+    </div> 
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
 </body>
 </html>
