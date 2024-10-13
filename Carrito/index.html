@@ -15,28 +15,35 @@
         <div class="t1">
             <table class="tablaProductos">
                 <thead>
-                    <tr class="craneo">
-                        <th class="producto">Producto</th>
-                        <th class="cantidad">Cantidad</th>
-                        <th class="unidad">Unidad</th>
-                        <th class="total">Total</th>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                        <th>Total</th>
                     </tr>
-                </thead>    
+                </thead> 
+                <tbody id="carrito">
+
+                </tbody>
             </table>
- 
         </div>
      
         <div class="t2">
-           
-            <div class="g1">
-                <h2>TOTAL</h2>
-            </div>
-            <div class="g2">
-                <p>Total: </p>
-            </div>
+            <h2>Total</h2>
+            <table class="tablaTotales">
+                <tbody id="tablaTotal">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="precioTotal"></td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div> 
-
+    <script src="carrito.js"></script> 
     <script src="script.js"></script>   
 </body>
 </html>

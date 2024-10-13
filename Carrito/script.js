@@ -1,78 +1,92 @@
-document.addEventListener('DOMContentLoaded', () => {
+let carrito = null;
+
+function cargarCarrito(catalogo) {
+    carrito = new Carrito(catalogo);
+    dibujarCarrito(carrito);
+}
+
+function actualizarCantidad(sku, cantidad){
+    let unidades = 0;
+    if (cantidad == null) {
+        unidades = document.getElementById(`cantidad_${sku}`).value;
+        console.log(unidades)
+    } else {
+        cantidad = parseInt(cantidad);
+        unidades = carrito.obtenerUnidades(sku);
+        unidades = unidades + cantidad;
+    }
+    if (unidades < 0) {
+        return;
+    } 
+    carrito.actualizarUnidades(sku, unidades);
+    dibujarCarrito(carrito);
+}
+
+function dibujarCarrito(carrito) {
+    let carrito_string = "";
+    let carrito_total = carrito.obtenerCarrito();
+    for (let product of carrito_total.products) {
+        carrito_string += `
+            <tr>
+                <td>
+                    <div>${product.title}</div>
+                    Ref: ${product.SKU}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', -1)">-</button>
+                    <input type="number" value="${product.quantity}" id="cantidad_${product.SKU}" class="form-control" onchange="actualizarCantidad('${product.SKU}', null)">
+                    <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', +1)">+</button>
+                </td>
+                <td>
+                    ${product.price}${carrito_total.currency}
+                </td>
+                <td>
+                    ${product.subtotal}${carrito_total.currency}
+                </td>
+            </tr>
+        `;
+        
+        
+    }
+    document.getElementById("carrito").innerHTML = carrito_string;
     
-});
-var misProductos = [];
-var currency;
 
-const cargarProductos = (productos) => {
-    misProductos = productos.products;
-    currency = productos.currency;
-    console.log('la moneda es:', $(currency));
-    console.log(misProductos);
+
+
+    let carrito_totalString = "";
+    for (let product of carrito_total.products) {
+        if (product.quantity == 0) {
+            continue;
+        }
+        carrito_totalString += `
+            <tr>
+                <td>
+                    ${product.title}
+                </td>
+                <td>
+                    ${product.subtotal}${carrito_total.currency}
+                </td>
+            </tr>
+        `;
+        
+        
+    }
+    document.getElementById("tablaTotal").innerHTML = carrito_totalString;
+    document.getElementById("precioTotal").innerHTML = carrito_total.total + carrito_total.currency;
+
+
+
+     
 }
 
-function renderizarProductos() {
-    baseDeDatos.forEach((info) => {
-        // Estructura
-        const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-4');
-        // Body
-        const miNodoCardBody = document.createElement('div');
-        // Titulo
-        const miNodoTitle = document.createElement('h5');
-        miNodoTitle.textContent = info.nombre;
-        // Precio
-        const miNodoPrecio = document.createElement('p');
-        miNodoPrecio.classList.add('card-text');
-        miNodoPrecio.textContent = `${info.precio}${divisa}`;
-        // Boton
-        const miNodoBoton = document.createElement('button');
-        miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = '+';
-        miNodoBoton.setAttribute('marcador', info.id);
-        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-        // Insertamos
-        miNodoCardBody.appendChild(miNodoImagen);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoPrecio);
-        miNodoCardBody.appendChild(miNodoBoton);
-        miNodo.appendChild(miNodoCardBody);
-        DOMitems.appendChild(miNodo);
-    });
-}
-
-function anyadirProductoAlCarrito(evento) {
-    // Anyadimos el Nodo a nuestro carrito
-    carrito.push(evento.target.getAttribute('marcador'))
-    // Actualizamos el carrito
-    renderizarCarrito();
-
-}
-
-function calcularTotal() {
-    // Recorremos el array del carrito
-    return carrito.reduce((total, item) => {
-        // De cada elemento obtenemos su precio
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-            return itemBaseDatos.id === parseInt(item);
-        });
-        // Los sumamos al total
-        return total + miItem[0].precio;
-    }, 0).toFixed(2);
-}
-
-// Eventos
-DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-
-// Inicio
-renderizarProductos();
-renderizarCarrito();
 
 
-fetch("http://jsonblob.com/1294298279851188224")
+
+
+fetch("https://jsonblob.com/api/jsonBlob/1294298279851188224")
    .then(response => response.json())
-   .then(productos => {
-    cargarProductos(productos);
+   .then(catalogo => {
+    cargarCarrito(catalogo);
     });
 
 
