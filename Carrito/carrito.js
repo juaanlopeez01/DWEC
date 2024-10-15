@@ -26,14 +26,6 @@ class Carrito {
         }
     }
 
-    obtenerInformacionProducto(sku) {
-        for (let product of this.products) {
-            if (product.SKU === sku) {
-                return product;
-            }
-        }
-    }
-
     obtenerCarrito() {
         let total = 0;
         for (let product of this.products) {

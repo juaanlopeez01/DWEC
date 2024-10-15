@@ -37,7 +37,7 @@ function dibujarCarrito(carrito) {
                     <input type="number" value="${product.quantity}" id="cantidad_${product.SKU}" class="form-control" onchange="actualizarCantidad('${product.SKU}', null)">
                     <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', +1)">+</button>
                 </td>
-                <td>
+                <td>s
                     ${product.price}${carrito_total.currency}
                 </td>
                 <td>
@@ -50,9 +50,6 @@ function dibujarCarrito(carrito) {
     }
     document.getElementById("carrito").innerHTML = carrito_string;
     
-
-
-
     let carrito_totalString = "";
     for (let product of carrito_total.products) {
         if (product.quantity == 0) {
@@ -68,20 +65,10 @@ function dibujarCarrito(carrito) {
                 </td>
             </tr>
         `;
-        
-        
     }
     document.getElementById("tablaTotal").innerHTML = carrito_totalString;
     document.getElementById("precioTotal").innerHTML = carrito_total.total + carrito_total.currency;
-
-
-
-     
 }
-
-
-
-
 
 fetch("https://jsonblob.com/api/jsonBlob/1294298279851188224")
    .then(response => response.json())
