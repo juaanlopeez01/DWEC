@@ -1,3 +1,5 @@
+//AÑADIR ARRAY
+
 class Carrito {
     constructor(catalogo) {
         this.currency = catalogo.currency;
@@ -8,6 +10,7 @@ class Carrito {
             product.subtotal = parseFloat(subtotal.toFixed(2));
         }
     }
+
     actualizarUnidades(sku, unidades) {
         for (let product of this.products) {
             if (product.SKU === sku) {

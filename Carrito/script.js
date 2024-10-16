@@ -22,6 +22,9 @@ function actualizarCantidad(sku, cantidad){
     dibujarCarrito(carrito);
 }
 
+
+//CAMBIAR TODO A INNERTEXT
+
 function dibujarCarrito(carrito) {
     let carrito_string = "";
     let carrito_total = carrito.obtenerCarrito();
@@ -29,7 +32,7 @@ function dibujarCarrito(carrito) {
         carrito_string += `
             <tr>
                 <td>
-                    <div>${product.title}</div>
+                    <div><h3>${product.title}</h3></div>
                     Ref: ${product.SKU}
                 </td>
                 <td>
@@ -37,7 +40,7 @@ function dibujarCarrito(carrito) {
                     <input type="number" value="${product.quantity}" id="cantidad_${product.SKU}" class="form-control" onchange="actualizarCantidad('${product.SKU}', null)">
                     <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', +1)">+</button>
                 </td>
-                <td>s
+                <td>
                     ${product.price}${carrito_total.currency}
                 </td>
                 <td>
