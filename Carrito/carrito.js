@@ -1,5 +1,6 @@
 //AÑADIR ARRAY
 
+
 class Carrito {
     constructor(catalogo) {
         this.currency = catalogo.currency;
