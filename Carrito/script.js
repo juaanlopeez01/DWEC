@@ -22,9 +22,6 @@ function actualizarCantidad(sku, cantidad){
     dibujarCarrito(carrito);
 }
 
-
-//CAMBIAR TODO A INNERTEXT
-
 function dibujarCarrito(carrito) {
     let carrito_string = "";
     let carrito_total = carrito.obtenerCarrito();
@@ -32,7 +29,7 @@ function dibujarCarrito(carrito) {
         carrito_string += `
             <tr>
                 <td>
-                    <div><h3>${product.title}</h3></div>
+                    <div>${product.title}</div>
                     Ref: ${product.SKU}
                 </td>
                 <td>
@@ -48,7 +45,6 @@ function dibujarCarrito(carrito) {
                 </td>
             </tr>
         `;
-        
         
     }
     document.getElementById("carrito").innerHTML = carrito_string;
@@ -71,6 +67,7 @@ function dibujarCarrito(carrito) {
     }
     document.getElementById("tablaTotal").innerHTML = carrito_totalString;
     document.getElementById("precioTotal").innerHTML = carrito_total.total + carrito_total.currency;
+     
 }
 
 fetch("https://jsonblob.com/api/jsonBlob/1294298279851188224")

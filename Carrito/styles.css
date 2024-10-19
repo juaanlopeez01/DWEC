@@ -4,7 +4,7 @@
 }
 
 .t2{
-    background-color: rgb(212, 210, 210);
+    background-color: rgb(219, 219, 219);
     flex-basis: 20%;
 }
 
@@ -18,7 +18,6 @@
     td, th{
         padding: 10px;
     }
-    
 }
 
 .tablaTotales{
@@ -36,6 +35,24 @@
     text-transform: uppercase;
     margin-bottom: 10px;
     font: 1em sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
+.t1{
+    flex-basis: 50%;
+    font: 1em sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    td{
+        padding: 10px;
+    }
+    th{
+        background-color: rgb(218, 224, 231);
+        color: rgb(0, 0, 0);
+    }
+    
+}
 
