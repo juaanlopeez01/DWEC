@@ -1,3 +1,4 @@
+import Carrito from "./carrito.js";
 let carrito = null;
 
 function cargarCarrito(catalogo) {
@@ -5,70 +6,109 @@ function cargarCarrito(catalogo) {
     dibujarCarrito(carrito);
 }
 
-function actualizarCantidad(sku, cantidad){
-    let unidades = 0;
-    if (cantidad == null) {
-        unidades = document.getElementById(`cantidad_${sku}`).value;
-        console.log(unidades)
+// Actualizar cantidad del carrito
+function actualizarCantidad(carrito, product, inputNumber, extraAmount, tdTotal, tdSubtotal, totalPrice, trCarrito){
+    let quantity = product.quantity;
+    let units = 0;
+    if (extraAmount == null) {
+        units = Number(inputNumber.value);
     } else {
-        cantidad = parseInt(cantidad);
-        unidades = carrito.obtenerUnidades(sku);
-        unidades = unidades + cantidad;
+        units = quantity + extraAmount;
     }
-    if (unidades < 0) {
-        return;
-    } 
-    carrito.actualizarUnidades(sku, unidades);
-    dibujarCarrito(carrito);
+    if (units < 0) {
+        units = 0;
+    }
+    carrito.actualizarUnidades(product.SKU, units);
+    inputNumber.value = units;
+    tdTotal.innerText = product.subtotal + carrito.currency
+    tdSubtotal.innerText = product.subtotal + carrito.currency
+    totalPrice.innerText = carrito.total + carrito.currency;
+    
+    if (product.quantity == 0){
+        trCarrito.style.display = "none";
+    } else {
+        trCarrito.style.display = "initial";
+    }
 }
 
 function dibujarCarrito(carrito) {
-    let carrito_string = "";
-    let carrito_total = carrito.obtenerCarrito();
-    for (let product of carrito_total.products) {
-        carrito_string += `
-            <tr>
-                <td>
-                    <div>${product.title}</div>
-                    Ref: ${product.SKU}
-                </td>
-                <td>
-                    <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', -1)">-</button>
-                    <input type="number" value="${product.quantity}" id="cantidad_${product.SKU}" class="form-control" onchange="actualizarCantidad('${product.SKU}', null)">
-                    <button type="button" class="btn btn-light" onclick="actualizarCantidad('${product.SKU}', +1)">+</button>
-                </td>
-                <td>
-                    ${product.price}${carrito_total.currency}
-                </td>
-                <td>
-                    ${product.subtotal}${carrito_total.currency}
-                </td>
-            </tr>
-        `;
+    for (let product of carrito.products) {
+        // Creacion de elemento
+        const mainCarrito = document.getElementById("carrito")
+        const tr = document.createElement('tr')
+        const tdProduct = document.createElement('td')
+        const divProductName = document.createElement('div')
+        const divProductRef = document.createElement('div')
+        const tdQuantity = document.createElement('td')
+        const btnMinus = document.createElement('button')
+        const inputNumber = document.createElement('input')
+        const btnPlus = document.createElement('button')
+        const tdUnit = document.createElement('td')
+        const tdTotal = document.createElement('td')
+        const totalTable = document.getElementById('tablaTotal')
+        const totalPrice = document.getElementById('precioTotal');
+        const trCarrito = document.createElement('tr');
+        const tdTitle = document.createElement('td')
+        const tdSubtotal = document.createElement('td')
         
-    }
-    document.getElementById("carrito").innerHTML = carrito_string;
-    
-    let carrito_totalString = "";
-    for (let product of carrito_total.products) {
-        if (product.quantity == 0) {
-            continue;
+        // TD producto
+        divProductName.innerText = product.title
+        divProductRef.innerText = "Ref: " + product.SKU
+        tdProduct.appendChild(divProductName)
+        tdProduct.appendChild(divProductRef)
+        tr.appendChild(tdProduct)
+
+        // TD quantity/cantidad
+        // botones
+        btnMinus.innerText = '-'
+        btnPlus.innerText = '+'
+        inputNumber.value = product.quantity
+        btnMinus.addEventListener('click', actualizarCantidad.bind(null, carrito, product, inputNumber, -1, tdTotal, tdSubtotal, totalPrice, trCarrito))
+        btnPlus.addEventListener('click', actualizarCantidad.bind(null, carrito, product, inputNumber, +1, tdTotal, tdSubtotal, totalPrice, trCarrito))
+        inputNumber.addEventListener('change', actualizarCantidad.bind(null, carrito, product, inputNumber, null, tdTotal, tdSubtotal, totalPrice, trCarrito))
+
+        btnMinus.classList.add("btn");
+        btnMinus.classList.add("btn-light");
+
+        btnPlus.classList.add("btn");
+        btnPlus.classList.add("btn-light");
+
+        inputNumber.classList.add("form-control");
+
+        tdQuantity.appendChild(btnMinus)
+        tdQuantity.appendChild(inputNumber)
+        tdQuantity.appendChild(btnPlus)
+        tr.appendChild(tdQuantity)
+
+        // TD unidades
+        tdUnit.innerText = product.price + carrito.currency
+        tr.appendChild(tdUnit)
+
+        // TD total
+        tdTotal.innerText = product.subtotal + carrito.currency
+        tr.appendChild(tdTotal)
+
+        // Añadir carrito tr
+        mainCarrito.appendChild(tr)
+        
+
+        // Tabla Total
+        tdTitle.innerText = product.title;
+        tdSubtotal.innerText = product.subtotal + carrito.currency
+        totalPrice.innerText = carrito.total + carrito.currency;
+        if (product.quantity == 0){
+            trCarrito.style.display = "none";
+        } else {
+            trCarrito.style.display = "initial";
         }
-        carrito_totalString += `
-            <tr>
-                <td>
-                    ${product.title}
-                </td>
-                <td>
-                    ${product.subtotal}${carrito_total.currency}
-                </td>
-            </tr>
-        `;
+        trCarrito.appendChild(tdTitle);
+        trCarrito.appendChild(tdSubtotal);
+        totalTable.appendChild(trCarrito);
+
     }
-    document.getElementById("tablaTotal").innerHTML = carrito_totalString;
-    document.getElementById("precioTotal").innerHTML = carrito_total.total + carrito_total.currency;
-     
 }
+
+// Fetch de catalogo de la API
 
 fetch("https://jsonblob.com/api/jsonBlob/1294298279851188224")
    .then(response => response.json())

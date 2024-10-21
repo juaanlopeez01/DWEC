@@ -53,6 +53,26 @@
         background-color: rgb(218, 224, 231);
         color: rgb(0, 0, 0);
     }
-    
 }
 
+.btn{
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(185, 185, 185);
+    color: rgb(0, 0, 0);
+    border: none;
+    font: 1em sans-serif;
+    text-decoration: none;
+}
+
+.form-control{
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgb(200, 200, 200);
+}  
+
+.tablaTotales{
+    text-align: left;
+}
