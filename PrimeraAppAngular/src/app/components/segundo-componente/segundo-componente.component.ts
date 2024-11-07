@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './segundo-componente.component.css'
 })
 export class SegundoComponenteComponent {
-
+  mitexto: string
+  @imput() textoH: string="";
+  constructor(){
+    this.mitexto = ""
+  }
 }
