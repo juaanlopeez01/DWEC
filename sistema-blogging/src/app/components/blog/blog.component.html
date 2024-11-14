@@ -1,0 +1,18 @@
+<div class="contenedor">
+    <h1>Sistema de Blogging</h1>
+    <div class="formulario">
+      <h2>Publicar Nueva Noticia</h2>
+      
+      <button (click)="agregarNoticia()">Publicar</button>
+    </div>
+    <div class="listado-noticias">
+      <h2>Listado de Noticias</h2>
+      <div *ngFor="let noticia of noticias">
+        <h3>{{ noticia.titulo }}</h3>
+        <img [src]="noticia.imagen" alt="{{ noticia.titulo }}">
+        <p>{{ noticia.texto }}</p>
+        <p><em>{{ noticia.fecha }}</em></p>
+      </div>
+    </div>
+  </div>
+  
