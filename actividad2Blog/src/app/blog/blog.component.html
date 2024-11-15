@@ -1,0 +1,35 @@
+<div class="blog-container">
+    <!-- Formulario para agregar una nueva noticia -->
+    <div class="form-container">
+      <h2>Publicar nueva noticia</h2>
+      <form (ngSubmit)="addNews()">
+        <label for="title">Título</label>
+        <input type="text" id="title" (input)="onTitleChange($event)" [value]="newTitle" required>
+  
+        <label for="imageUrl">Imagen URL</label>
+        <input type="text" id="imageUrl" (input)="onImageUrlChange($event)" [value]="newImageUrl" required>
+  
+        <label for="body">Cuerpo de la noticia</label>
+        <textarea id="body" (input)="onBodyChange($event)" [value]="newBody" required></textarea>
+  
+        <label for="date">Fecha</label>
+        <input type="date" id="date" (input)="onDateChange($event)" [value]="newDate" required>
+  
+        <button type="submit">Publicar</button>
+      </form>
+    </div>
+  
+    <!-- Lista de noticias -->
+    <div class="news-list">
+      <h2>Lista de Noticias</h2>
+      <div *ngFor="let item of news">
+        <div class="news-item">
+          <h3>{{ item.title }}</h3>
+          <img [src]="item.imageUrl" alt="{{ item.title }}">
+          <p>{{ item.body }}</p>
+          <small>{{ item.date }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
