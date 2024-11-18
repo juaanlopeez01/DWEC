@@ -1,35 +1,28 @@
 <div class="blog-container">
-    <!-- Formulario para agregar una nueva noticia -->
-    <div class="form-container">
+  <!-- Formulario para agregar una nueva noticia -->
+  <div class="form-container">
       <h2>Publicar nueva noticia</h2>
-      <form (ngSubmit)="addNews()">
-        <label for="title">Título</label>
-        <input type="text" id="title" (input)="onTitleChange($event)" [value]="newTitle" required>
-  
-        <label for="imageUrl">Imagen URL</label>
-        <input type="text" id="imageUrl" (input)="onImageUrlChange($event)" [value]="newImageUrl" required>
-  
-        <label for="body">Cuerpo de la noticia</label>
-        <textarea id="body" (input)="onBodyChange($event)" [value]="newBody" required></textarea>
-  
-        <label for="date">Fecha</label>
-        <input type="date" id="date" (input)="onDateChange($event)" [value]="newDate" required>
-  
-        <button type="submit">Publicar</button>
-      </form>
-    </div>
-  
-    <!-- Lista de noticias -->
-    <div class="news-list">
-      <h2>Lista de Noticias</h2>
-      <div *ngFor="let item of news">
-        <div class="news-item">
-          <h3>{{ item.title }}</h3>
-          <img [src]="item.imageUrl" alt="{{ item.title }}">
-          <p>{{ item.body }}</p>
-          <small>{{ item.date }}</small>
+        <div>
+            <label for="titulo">Titulo: </label>
+            <input type="text" name="titulo" id="titulo" placeholder="Introduce un titulo" [(ngModel)] = "newNoticias.titulo">
         </div>
-      </div>
-    </div>
+        <div>
+            <label for="url">URL: </label>
+            <input type="url" name="url" id="url" placeholder="Introduce una url" [(ngModel)] = "newNoticias.url">
+        </div>
+        <div>
+            <label for="texto">Texto: </label>
+            <textarea  name="texto" id="texto" placeholder="Introduce una descripcion" [(ngModel)] = "newNoticias.texto">
+        </div>
+        <div>
+            <label for="fecha">Fecha: </label>
+            <imput type="datetime-local" name="fecha" id="fecha" placeholder="Introduce una fecha para la noticia" [(ngModel)] = "newNoticias.fecha">
+        </div>
   </div>
-  
+</div>
+
+<hr><br>
+<div id="listadoNoticias" [innerHTML]="cargarDatos()">
+</div>
+
+

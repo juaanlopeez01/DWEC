@@ -1,35 +1,51 @@
 import { Component } from '@angular/core';
+import { Inoticias } from '../interfaces/inoticias';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './blog.component.html',
-  styleUrls: './blog.component.css'
+  styleUrl: './blog.component.css'
 })
+
 export class BlogComponent {
   // Array para las noticias iniciales
-  arrAficiones: Iaficiones [] = [];
+  arrNoticias: Inoticias [] = [];
 
-  newAficion: Iaficiones = {
-    aficion: "",
-    nombre: ""
+  newNoticias: Inoticias = {
+    titulo: "",
+    url: "" ,
+    texto: "",
+    fecha: ""
   };
 
   guardarDatos():void{
     //Guardar los datos
-    this.arrAficiones.push(this.newAficion);
+    this.arrNoticias.push(this.newNoticias);
 
-    this.newAficion = {
-      aficion: "",
-      nombre: "",
+    this.newNoticias = {
+      titulo: "",
+      url: "" ,
+      texto: "",
+      fecha: ""
     }
-    console.log(this.arrAficiones);
+    console.log(this.arrNoticias);
   }
 
   cargarDatos(): string {
     let html : string = "";
-    this.arrAficiones.forEach(element => {
-      html += `<p>${element.aficion} - ${element.nombre}</p>`
+    this.arrNoticias.forEach(element => {
+      html += 
+      `
+      <p>${element.titulo}</p>
+      <img src="${element.url}"></img>
+      <p>${element.texto}</p>
+      <p>${element.fecha}</p>
+      `
     });
+
     return html;
   }
 }
