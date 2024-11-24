@@ -3,27 +3,26 @@
 
     <div>
         <label for="titulo">Titulo: </label>
-        <input type="text" name="titulo" id="titulo" placeholder="Introduce un titulo" [(ngModel)] = "newPosts.titulo">
+        <input type="text" name="titulo" id="titulo" placeholder="Introduce un titulo" [(ngModel)]="newPosts.titulo">
     </div>
     <div>
         <label for="url">URL: </label>
-        <input type="url" name="url" id="url" placeholder="Introduce una url" [(ngModel)] = "newPosts.url">
+        <input type="url" name="url" id="url" placeholder="Introduce una url" [(ngModel)]="newPosts.url">
     </div>
 
     <div>
         <label for="descripcion">Descripcion: </label>
-        <textarea  name="descripcion" id="descripcion" placeholder="Introduce una descripcion" [(ngModel)] = "newPosts.descripcion"></textarea>
+        <textarea name="descripcion" id="descripcion" placeholder="Introduce una descripcion" [(ngModel)]="newPosts.descripcion"></textarea>
     </div>
 
     <div>
         <label for="fecha">Fecha: </label>
-        <imput type="datetime-local" name="fecha" id="fecha" placeholder="Introduce una fecha para la noticia" [(ngModel)] = "newPosts.fecha"></imput>
+        <input type="datetime-local" name="fecha" id="fecha" placeholder="Introduce una fecha para la noticia" [(ngModel)]="newPosts.fecha">
     </div>
 
     <button (click)="guardardatos()">Guardar</button>
 
     <hr><br>
     <div id="listadoAficiones" [innerHTML]="cargarDatos()">
-
     </div>
 </section>

@@ -10,47 +10,37 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './blog.component.css'
 })
 
-
 export class BlogComponent {
-    arrPosts: Ipost [] = [];
+    arrPosts: Ipost[] = [];
     
     newPosts: Ipost = {
         titulo: "",
-        url: "" ,
+        url: "",
         descripcion: "",
-        fecha: ""
+        fecha: new Date().toISOString()
     };
   
-  guardardatos():void{
-      this.arrPosts.push(this.newPosts);
-      this.newPosts = {
-          titulo: "",
-          url: "" ,
-          descripcion: "",
-          fecha: ""
-      }
+    guardardatos(): void {
+        this.arrPosts.push({ ...this.newPosts });
+        this.newPosts = {
+            titulo: "",
+            url: "",
+            descripcion: "",
+            fecha: new Date().toISOString()
+        }
         console.log(this.arrPosts);
     }
-  cargarDatos(): string {
-    let html: string = "";
-    this.arrPosts.forEach(element => {
-      html +=
-      `
-      <p>${element.titulo}</p>
-      <img src="${element.url}"></img>
-      <p>${element.descripcion}</p>
-      <p>${element.fecha}</p>
-      `
-    })
-
-    return html;
-  }
-
-
-  constructor(){
-
-  }
-
   
-
+    cargarDatos(): string {
+        let html: string = "";
+        this.arrPosts.forEach(element => {
+            html += `
+            <p>${element.titulo}</p>
+            <img src="${element.url}">
+            <p>${element.descripcion}</p>
+            <p>${element.fecha}</p>
+            `;
+        });
+        return html;
+    }
 }
